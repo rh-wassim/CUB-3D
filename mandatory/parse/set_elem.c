@@ -118,4 +118,8 @@ void all_ele_fil(t_pars *map, char *line)
     {
         ft_error("Invalid element or elements already filled");
     }
+
+    // Check if there is content after the map
+    if (map->flag == 1)
+        ft_error("Content after the map");
 }
