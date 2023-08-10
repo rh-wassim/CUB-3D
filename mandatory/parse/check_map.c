@@ -44,7 +44,7 @@ void	free_double(char **line)
 	free(line);
 }
 
-int set_colors(char *line) // need to handel overflow and check size of str need to be 3 max
+int set_colors(char *line) // +25 line
 {
     char    **rgb;
     char    **color;
@@ -61,8 +61,12 @@ int set_colors(char *line) // need to handel overflow and check size of str need
     if (!rgb || !rgb[0] || !rgb[1] || !rgb[2])
         ft_error("Color does not set correctly!");
 
-    if (!is_integer(rgb[0]) || !is_integer(rgb[1]) || !is_integer(rgb[2]))
-        ft_error("Color values must be integers!");
+    if (!is_integer_with_max_length(rgb[0], 3) ||
+        !is_integer_with_max_length(rgb[1], 3) ||
+        !is_integer_with_max_length(rgb[2], 3))
+    {
+        ft_error("Color values must be integers with max 3 digits!");
+    }
 
     r = ft_atoi(rgb[0]);
     g = ft_atoi(rgb[1]);
@@ -76,6 +80,7 @@ int set_colors(char *line) // need to handel overflow and check size of str need
 
     return (r << 16 | g << 8 | b);
 }
+
 
 void	set_pars_helper(int fd, t_pars *map, char *line)
 {

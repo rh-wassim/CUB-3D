@@ -63,4 +63,5 @@ void	fill_north_east(char *line, t_pars *map);
 void	is_surrounded(t_pars *map, int i, int j);
 void	check_textures(t_pars *map, char *line, int fd);
 int		is_integer(const char *str);
+int is_integer_with_max_length(const char *str, int max_length);
 #endif
