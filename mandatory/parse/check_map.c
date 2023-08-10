@@ -44,7 +44,7 @@ void	free_double(char **line)
 	free(line);
 }
 
-int set_colors(char *line)
+int set_colors(char *line) // need to handel overflow and check size of str need to be 3 max
 {
     char    **rgb;
     char    **color;
