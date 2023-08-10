@@ -42,21 +42,3 @@ void	ft_init(t_pars *map)
 	map->nb_line = 0;
 	map->flag = -1;
 }
-
-int is_integer_with_max_length(const char *str, int max_length)
-{
-    if (*str == '\0')
-        return 0;
-
-    if (ft_strlen(str) > max_length)
-        return 0;
-
-    while (*str)
-    {
-        if (*str < '0' || *str > '9')
-            return 0;
-        str++;
-    }
-
-    return 1;
-}
